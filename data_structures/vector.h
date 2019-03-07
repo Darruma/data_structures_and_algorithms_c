@@ -11,5 +11,6 @@ vector* make_vector(int);
 void push_vector(vector*,int);
 int is_empty(vector*);
 int at(vector*,int);
-vector* vectorise(vector*);
+void vectorise(vector*);
+void vector_print(vector*);
 #endif
