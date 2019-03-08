@@ -1,5 +1,4 @@
 #include "../include/vector.h"
-#include <stdio.h>
 
 vector *make_vector(int capacity) {
   vector *v = malloc(sizeof(vector) * capacity);
