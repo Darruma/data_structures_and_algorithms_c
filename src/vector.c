@@ -1,4 +1,4 @@
-#include "vector.h"
+#include "../include/vector.h"
 #include <stdio.h>
 
 vector *make_vector(int capacity) {
@@ -24,7 +24,6 @@ void vector_print(vector *v) {
   }
 }
 
-
 void push_vector(vector *v, int element) {
   int size = v->size;
   int capacity = v->capacity;
@@ -36,12 +35,12 @@ void push_vector(vector *v, int element) {
     push_vector(v, element);
   }
 }
-int pop(vector *v ) {
-    int v_size = v->size;
-    v->size = v_size -1;
-    int pop = v->data[v_size];
-    v->data[v_size] = 0;
-    return pop;
+int pop(vector *v) {
+  int v_size = v->size;
+  v->size = v_size - 1;
+  int pop = v->data[v_size];
+  v->data[v_size] = 0;
+  return pop;
 }
 int vectorise(vector *v) {
   if (v->size + 1 > v->capacity) {
@@ -59,9 +58,7 @@ int vectorise(vector *v) {
   return 0;
 }
 
-void prepend(vector *v, int element) {
-   insert(v,0,element);
-}
+void prepend(vector *v, int element) { insert(v, 0, element); }
 int is_empty(vector *v) {
   if (v->size == 0) {
     return 1;
@@ -69,21 +66,34 @@ int is_empty(vector *v) {
   return 0;
 }
 
-void delete(vector* v,int position) {
-    for(int i = position; i < v->size; i++) {
-        v->data[i] = v->data[i+1];
+void delete (vector *v, int position) {
+  for (int i = position; i < v->size; i++) {
+    v->data[i] = v->data[i + 1];
+  }
+  v->data[v->size] = 0;
+  v->size = v->size - 1;
+}
+void remove_element(vector *v, int item) {
+  for (int i = 0; i < v->size; i++) {
+    if (v->data[i] == item) {
+      delete (v, i);
     }
-    v->data[v->size] = 0;
-    v->size = v->size -1;
+  }
 }
-void remove(vector* v,int item) {
+int find_element(vector *v, int item) {
+  for (int i = 0; i < v->size; i++) {
+    if (v->data[i] == item) {
+      return i;
+    }
+  }
+  return -1;
+}
 
-}
 int at(vector *v, int position) { return v->data[position]; }
 
-void insert(vector *v, int position,int element) {
+void insert(vector *v, int position, int element) {
   vectorise(v);
-  for (int i = v->size ; i > position - 1; i--) {
+  for (int i = v->size; i > position - 1; i--) {
     v->data[i + 1] = v->data[i];
   }
   v->data[position] = element;

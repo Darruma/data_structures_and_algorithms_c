@@ -1,4 +1,4 @@
-#include "./data_structures/vector.h"
+#include "include/vector.h"
 
 int main() {
     vector* v = make_vector(2);

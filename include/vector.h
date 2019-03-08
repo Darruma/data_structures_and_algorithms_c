@@ -18,5 +18,5 @@ void prepend(vector*,int);
 int pop(vector*);
 void delete(vector*,int);
 void remove_element(vector*, int);
-void find(vector*,int);
+int find_element(vector*,int);
 #endif
