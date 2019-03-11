@@ -1,6 +1,5 @@
 #include "../include/linked_list.h"
 #include <stddef.h>
-#include "../include/node.h"
 
 linked_list *make_list() {
   linked_list *l = malloc(sizeof(linked_list));
@@ -12,7 +11,7 @@ linked_list *make_list() {
 int size(linked_list *l) {
   node *current = l->head;
   int size = 0;
-  while (&current != NULL) {
+  while (current != NULL) {
     size = size + 1;
     current = current->next;
   }
@@ -24,10 +23,11 @@ int empty(linked_list *l) { return (l->head != NULL); }
 int value_at(linked_list *l, int position) {
   node *current = l->head;
   int i = 0;
-  while (&current != NULL && i < position) {
+  while (current != NULL && i < position ) {
     i = i + 1;
     current = current->next;
   }
+  return current->data;
 }
 
 void push_front(linked_list *l, int data) {
@@ -51,20 +51,18 @@ int pop_front(linked_list *l) {
 
 void push_back(linked_list *l, int data) {
   node *new_node = make_node(data);
-  new_node->next = NULL;
-  if (l->tail == NULL) {
+  if(l->head == NULL) {
+    l->head = new_node;
+  }
+  else if (l->tail == NULL) {
     l->tail = new_node;
+    l->head->next = l->tail;
   } else {
-    new_node->next = l->tail;
+    l->tail->next = new_node;
     l->tail = new_node;
   }
 }
-int front(linked_list *l) {
-  return l->head->data;
-}
-int back(linked_list *l) {
-  l->tail->data;
-}
+
 int pop_back(linked_list *l) {
    if(l->tail != NULL) {
      int data = back(l);
@@ -76,4 +74,21 @@ int pop_back(linked_list *l) {
      return data;
    }
    return -1;
+}
+
+int front(linked_list *l) {
+  return l->head->data;
+}
+int back(linked_list *l) {
+  return l->tail->data;
+}
+
+
+void list_print(linked_list *l) {
+  node *temp = l->head;
+  while(temp != NULL) {
+   printf("(%d)->",temp->data);
+   temp = temp->next;
+ }
+ printf("() \n");
 }
