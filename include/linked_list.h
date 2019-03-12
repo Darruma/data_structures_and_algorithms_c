@@ -17,4 +17,11 @@ int pop_back(linked_list*);
 int front(linked_list*);
 int back(linked_list*);
 void list_print(linked_list*);
+void insert(linked_list*,int,int);
+void erase(linked_list*,int);
+int value_n_from_end(linked_list*,int);
+void reverse(linked_list*);
+void remove_value(linked_list*,int);
+void free_list(linked_list*);
+
 #endif
