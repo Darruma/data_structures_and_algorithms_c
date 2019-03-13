@@ -119,7 +119,7 @@ int value_n_from_end(linked_list *l,int n) {
 void list_print(linked_list *l) {
   node *temp = l->head;
   while(temp != NULL) {
-   printf("(%d)->",temp->data);
+   printf("(%d)->",(int*)temp->data);
    temp = temp->next;
  }
  printf("() \n");

@@ -2,9 +2,9 @@
 #define _node_h
 
 typedef struct node {
-    int data;
+    void *data;
     struct node* next;
 } node;
 
-node* make_node(int);
+node* make_node(void *);
 #endif
