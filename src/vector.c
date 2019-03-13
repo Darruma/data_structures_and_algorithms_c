@@ -1,7 +1,7 @@
 #include "../include/vector.h"
 
 vector *make_vector(int capacity) {
-  vector *v = malloc(sizeof(vector) * capacity);
+  vector *v = malloc(sizeof(vector));
   v->size = 0;
   v->capacity = capacity;
   v->data = malloc(sizeof(int) * capacity);

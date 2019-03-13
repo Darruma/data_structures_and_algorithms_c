@@ -18,7 +18,7 @@ int size(linked_list *l) {
   return size;
 }
 
-int empty(linked_list *l) { return (l->head != NULL); }
+int empty_list(linked_list *l) { return (l->head != NULL); }
 
 int value_at(linked_list *l, int position) {
   node* n = value_n_from_end(l,position);

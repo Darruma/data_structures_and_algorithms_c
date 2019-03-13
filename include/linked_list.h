@@ -8,7 +8,7 @@ typedef struct {
 
 linked_list* make_list();
 int size(linked_list*);
-int empty(linked_list*);
+int empty_list(linked_list*);
 int value_at(linked_list*, int);
 void push_front(linked_list*, int);
 int pop_front(linked_list*);
