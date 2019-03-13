@@ -21,7 +21,8 @@ int size(linked_list *l) {
 int empty(linked_list *l) { return (l->head != NULL); }
 
 int value_at(linked_list *l, int position) {
-  return node_at(l,position)->data;
+  node* n = value_n_from_end(l,position);
+  return n->data;
 }
 node* node_at(linked_list *l, int position) {
   node *current = l->head;
@@ -98,7 +99,7 @@ int back(linked_list *l) {
   return l->tail->data;
 }
 
-void insert(linked_list* l, int position, int data) {
+void insert_list(linked_list* l, int position, int data) {
   node *new_node = make_node(data);
   node *before = node_at(l,position -1);
   node *after = node_at(l,position + 1);

@@ -5,4 +5,7 @@ int main() {
     push_front(l,5);
     push_front(l,2);
     list_print(l);
+    reverse(l);
+    list_print(l);
+    free_list(l);
 }
