@@ -1,4 +1,5 @@
 #include "../include/linked_list.h"
+#include <stdbool.h>
 #include <stddef.h>
 
 linked_list *make_list() {
@@ -18,16 +19,16 @@ int size(linked_list *l) {
   return size;
 }
 
-int empty_list(linked_list *l) { return (l->head != NULL); }
+bool empty_list(linked_list *l) { return (l->head != NULL); }
 
 int value_at(linked_list *l, int position) {
-  node* n = value_n_from_end(l,position);
+  node *n = value_n_from_end(l, position);
   return n->data;
 }
-node* node_at(linked_list *l, int position) {
+node *node_at(linked_list *l, int position) {
   node *current = l->head;
   int i = 0;
-  while (current != NULL && i < position ) {
+  while (current != NULL && i < position) {
     i = i + 1;
     current = current->next;
   }
@@ -43,18 +44,18 @@ void push_front(linked_list *l, int data) {
     l->head = new_node;
   }
 }
-void remove_value(linked_list *l , int value) {
+void remove_value(linked_list *l, int value) {
   node *temp = l->head;
   int value_found = 0;
   int index = 0;
-  while(temp != NULL && value_found == 0) {
+  while (temp != NULL && value_found == 0) {
     index = index + 1;
-    if(temp->data == value) {
+    if (temp->data == value) {
       value_found = 1;
     }
     temp = temp->next;
   }
-  erase(l,index);
+  erase(l, index);
 }
 int pop_front(linked_list *l) {
   if (l->head != NULL) {
@@ -67,10 +68,9 @@ int pop_front(linked_list *l) {
 
 void push_back(linked_list *l, int data) {
   node *new_node = make_node(data);
-  if(l->head == NULL) {
+  if (l->head == NULL) {
     l->head = new_node;
-  }
-  else if (l->tail == NULL) {
+  } else if (l->tail == NULL) {
     l->tail = new_node;
     l->head->next = l->tail;
   } else {
@@ -80,55 +80,49 @@ void push_back(linked_list *l, int data) {
 }
 
 int pop_back(linked_list *l) {
-   if(l->tail != NULL) {
-     int data = back(l);
-     node *temp = l->head;
-     while(&temp != NULL && temp->next != NULL) {
-       temp = temp->next;
-     }
-     l->tail = temp;
-     return data;
-   }
-   return -1;
+  if (l->tail != NULL) {
+    int data = back(l);
+    node *temp = l->head;
+    while (&temp != NULL && temp->next != NULL) {
+      temp = temp->next;
+    }
+    l->tail = temp;
+    return data;
+  }
+  return -1;
 }
 
-int front(linked_list *l) {
-  return l->head->data;
-}
-int back(linked_list *l) {
-  return l->tail->data;
-}
+int front(linked_list *l) { return l->head->data; }
+int back(linked_list *l) { return l->tail->data; }
 
-void insert_list(linked_list* l, int position, int data) {
+void insert_list(linked_list *l, int position, int data) {
   node *new_node = make_node(data);
-  node *before = node_at(l,position -1);
-  node *after = node_at(l,position + 1);
+  node *before = node_at(l, position - 1);
+  node *after = node_at(l, position + 1);
   before->next = new_node;
   new_node->next = after;
 }
 
-void erase(linked_list *l , int position) {
-  node *before = node_at(l,position -1);
-  free(node_at(l,position));
-  node *after = node_at(l,position +1);
+void erase(linked_list *l, int position) {
+  node *before = node_at(l, position - 1);
+  free(node_at(l, position));
+  node *after = node_at(l, position + 1);
   before->next = after;
 }
-int value_n_from_end(linked_list *l,int n) {
-  return value_at(l,size(l) - n);
-}
+int value_n_from_end(linked_list *l, int n) { return value_at(l, size(l) - n); }
 void list_print(linked_list *l) {
   node *temp = l->head;
-  while(temp != NULL) {
-   printf("(%d)->",(int*)temp->data);
-   temp = temp->next;
- }
- printf("() \n");
+  while (temp != NULL) {
+    printf("(%d)->", (int *)temp->data);
+    temp = temp->next;
+  }
+  printf("() \n");
 }
 
 void free_list(linked_list *l) {
   node *temp = l->head;
   node *next = NULL;
-  while(temp != NULL) {
+  while (temp != NULL) {
     next = temp;
     temp = temp->next;
     free(next);
@@ -142,7 +136,7 @@ void reverse(linked_list *l) {
   node *next = NULL;
   // swap tail to be head;
   l->tail = l->head;
-  while(current != NULL) {
+  while (current != NULL) {
     // reverse pointers
     next = current->next;
     current->next = previous;

@@ -58,11 +58,11 @@ int vectorise(vector *v) {
 }
 
 void prepend(vector *v, int element) { insert(v, 0, element); }
-int is_empty(vector *v) {
+bool is_empty(vector *v) {
   if (v->size == 0) {
-    return 1;
+    return true;
   }
-  return 0;
+  return false;
 }
 
 void delete (vector *v, int position) {

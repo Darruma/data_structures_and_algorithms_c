@@ -10,8 +10,8 @@ queue* make_queue(int cap) {
   q->back = cap - 1;
   return q;
 }
-int empty(queue* q) { return q->size == 0; }
-int full(queue* q) { return q->capacity == q->size; }
+bool empty(queue* q) { return q->size == 0; }
+bool full(queue* q) { return q->capacity == q->size; }
 int peek(queue* q) { return q->data[q->front]; }
 int dequeue(queue* q) {
    if(!empty(q)) {
@@ -32,10 +32,8 @@ void enqueue(queue* q, int element) {
 }
 
 void queue_print(queue* q) {
-
     for(int j = q->front; j < q->back + 1;j++) {
         printf("%d ",q->data[j]);
     }
     printf("\n");
-  
 }

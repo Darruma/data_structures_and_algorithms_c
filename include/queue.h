@@ -1,4 +1,5 @@
 #ifndef _queue_h
+#include <stdbool.h>
 #define _queue_h
 
 typedef struct {
@@ -12,8 +13,8 @@ typedef struct {
 void enqueue(queue*,int);
 int dequeue(queue*);
 int peek(queue*);
-int empty(queue*);
-int full(queue*);
+bool empty(queue*);
+bool full(queue*);
 queue* make_queue(int);
 void queue_print(queue*);
 #endif

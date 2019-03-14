@@ -2,7 +2,7 @@
 #include "include/node.h"
 #include <stddef.h>
 #include <math.h>
-#include <string.h>
+#include <stdbool.h>
 
 chained_hash_table* make_cht(int size) {
   chained_hash_table* h = (chained_hash_table*)malloc(sizeof(chained_hash_table));
@@ -62,4 +62,9 @@ char* search_cht(chained_hash_table* cht,char * key) {
       tmp = tmp->next;
     } 
   }
+  return NULL;
+}
+
+bool exists_cht(chained_hash_table *cht, char * key) {
+   return cht->items[hash(key,cht->size)] == NULL;
 }
