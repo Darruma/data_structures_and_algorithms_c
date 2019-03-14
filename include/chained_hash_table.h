@@ -11,4 +11,5 @@ typedef struct {
 
 chained_hash_table* make_chained_hash_table(int);
 void delete_chained_hash_table(hash_table);
+int hash(char*,int);
 #endif
