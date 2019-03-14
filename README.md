@@ -4,11 +4,10 @@ Data structures and algorithms implemented in C
 ## Todo
 
 ### Data Structures
-- Vector
-- Linked List
-- Stack
-- Queue
-- Hash Table
-- Trees
-- Graphs
+- [x] Vector
+- [x] Linked List
+- [x] Queue
+- [x] Hash Table
+- [ ] Trees
+- [ ] Graphs
 
