@@ -1,4 +1,4 @@
-#include "include/pair.h"
+#include "../include/pair.h"
 
 pair* make_pair(char* key ,char* val ) {
     pair *p = (pair*) malloc(sizeof(pair));

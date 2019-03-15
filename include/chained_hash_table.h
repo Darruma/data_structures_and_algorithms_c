@@ -1,7 +1,8 @@
 #ifndef _hash_table_h
-#include <stdlib.h>
-#include <stdbool.h>
 #include "pair.h"
+#include <stdlib.h>
+#include "node.h"
+#include <stdbool.h>
 #define _hash_table_h
 
 typedef struct {
