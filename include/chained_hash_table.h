@@ -15,4 +15,5 @@ void delete_cht(chained_hash_table*);
 void insert_cht(chained_hash_table*,char*,char*);
 int hash(char*,int);
 bool exists_cht(chained_hash_table*,char*);
+void print_cht(chained_hash_table*);
 #endif

@@ -68,3 +68,13 @@ char* search_cht(chained_hash_table* cht,char * key) {
 bool exists_cht(chained_hash_table *cht, char * key) {
    return cht->items[hash(key,cht->size)] == NULL;
 }
+void print_cht(chained_hash_table *cht) {
+  for(int i =0; i < cht->size;i++) {
+     node *temp = cht->items[i];
+     if(temp != NULL){
+       printf("%s",temp->data);
+       temp = temp->next;
+     }
+     printf("\n");
+  }
+}
