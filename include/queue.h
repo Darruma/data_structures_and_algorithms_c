@@ -1,7 +1,7 @@
 #ifndef _queue_h
-#include <stdbool.h>
-#define _queue_h
 
+#define _queue_h
+#include <stdbool.h>
 typedef struct {
     int * data;
     int capacity;

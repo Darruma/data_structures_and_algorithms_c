@@ -57,7 +57,7 @@ char* search_cht(chained_hash_table* cht, char* key) {
     node* tmp = cht_node;
     while (tmp != NULL) {
       pair* p_temp = (pair*)tmp->data;
-      if (p_temp->key == key) {
+      if (*(char *)p_temp->key == key) {
         return p_temp->value;
       }
       tmp = tmp->next;
@@ -73,7 +73,7 @@ void print_cht(chained_hash_table* cht) {
   for (int i = 0; i < cht->size; i++) {
     node* temp = &(cht->items[i]);
     if (temp != NULL) {
-      printf("%s", temp->data);
+      printf("%s", *(char*)temp->data);
       temp = temp->next;
     }
     printf("\n");

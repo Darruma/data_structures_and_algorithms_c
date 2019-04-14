@@ -1,11 +1,10 @@
 #ifndef _pair_h
-#include <stdlib.h>
 #define _pair_h
 typedef struct {
-  char* key;
-  char* value;
+  void* key;
+  void* value;
 } pair;
 
-pair* make_pair(char*,char*);
+void* make_pair(void*,void*);
 void delete_pair(pair*);
 #endif

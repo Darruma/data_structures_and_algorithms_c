@@ -1,9 +1,9 @@
 #ifndef _hash_table_h
+#define _hash_table_h
 #include "pair.h"
 #include <stdlib.h>
 #include "node.h"
 #include <stdbool.h>
-#define _hash_table_h
 
 typedef struct {
   node* items;
