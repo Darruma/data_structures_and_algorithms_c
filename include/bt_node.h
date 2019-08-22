@@ -3,10 +3,10 @@
 #define _bt_node_h
 
 typedef struct bt_node {
-    void *data;
+    int *data;
     struct bt_node* left;
     struct bt_node* right;
 } bt_node;
 
-bt_node* make_bt_node(void *);
+bt_node* make_bt_node(int);
 #endif

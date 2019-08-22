@@ -5,6 +5,6 @@ typedef struct {
   void* value;
 } pair;
 
-void* make_pair(void*,void*);
+pair* make_pair(void*,void*);
 void delete_pair(pair*);
 #endif
